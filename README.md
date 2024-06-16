@@ -43,7 +43,7 @@ Go to [https://jinay.dev/gpt-anywhere/](https://jinay.dev/gpt-anywhere/) to dowl
 
 1. Install Yarn if you have not already. To install yarn, follow the instructions [here](https://classic.yarnpkg.com/en/docs/getting-started)
 2. Install Tauri, which is one of the dependencies for this project. For instructions for installing Tauri, follow the prerequisites page on their website linked [here](https://tauri.app/v1/guides/getting-started/prerequisites/).
-3. Clone this repository from [https://github.com/Batyan45/gpt-anywhere](https://github.com/Batyan45/gpt-anywhere) or with the command: `git clone git@github.com:Batyan45/gpt-anywhere.git`
+3. Clone this repository from [https://github.com/JinayJain/gpt-anywhere](https://github.com/JinayJain/gpt-anywhere) or with the command: `git clone git@github.com:JinayJain/gpt-anywhere.git`
 4. Run `yarn install` to install the rest of the dependencies
 5. To build the project, run `yarn tauri build`. This will create a distributable package for your operating system.
 6. Commit your changes to your local repository
