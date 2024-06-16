@@ -46,6 +46,7 @@ const sendOpenAiApiRequest: SendRequestFn = async (
   temperature
 ) => {
   const apiKey = await store.get(STORE_KEY.OPENAI_API_KEY);
+  const endpoint = (await store.get(STORE_KEY.OPENAI_API_ENDPOINT)) || "https://api.openai.com/v1";
   const max_tokens =
     Number(await store.get(STORE_KEY.MAX_TOKENS)) || DEFAULT_MAX_TOKENS;
 
@@ -56,7 +57,7 @@ const sendOpenAiApiRequest: SendRequestFn = async (
     content: msg.content,
   }));
 
-  return await fetch("https://api.openai.com/v1/chat/completions", {
+  return await fetch(`${endpoint}/chat/completions`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

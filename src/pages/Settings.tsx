@@ -30,6 +30,7 @@ function Settings() {
   const toast = useToast();
   const [openAiKey, setOpenAiKey] = useState<string | null>(null);
   const [anthropicKey, setAnthropicKey] = useState<string | null>(null);
+  const [openAiEndpoint, setOpenAiEndpoint] = useState<string | null>(null);
   const [timeout, setTimeout] = useState<number | null>(null);
   const [maxTokens, setMaxTokens] = useState<number | null>(null);
 
@@ -37,6 +38,9 @@ function Settings() {
     const populateFields = async () => {
       const openAiKey: string | null = await store.get(
         STORE_KEY.OPENAI_API_KEY
+      );
+      const openAiEndpoint: string | null = await store.get(
+        STORE_KEY.OPENAI_API_ENDPOINT
       );
       const anthropicKey: string | null = await store.get(
         STORE_KEY.ANTHROPIC_API_KEY
@@ -48,6 +52,7 @@ function Settings() {
       setAnthropicKey(anthropicKey);
       setTimeout(timeout ?? DEFAULT_TIMEOUT);
       setMaxTokens(maxTokens ?? DEFAULT_MAX_TOKENS);
+      setOpenAiEndpoint(openAiEndpoint);
     };
 
     populateFields();
@@ -55,6 +60,7 @@ function Settings() {
 
   const handleSave = async () => {
     await store.set(STORE_KEY.OPENAI_API_KEY, openAiKey);
+    await store.set(STORE_KEY.OPENAI_API_ENDPOINT, openAiEndpoint);
     await store.set(STORE_KEY.ANTHROPIC_API_KEY, anthropicKey);
     await store.set(STORE_KEY.TIMEOUT, timeout ?? DEFAULT_TIMEOUT);
     await store.set(STORE_KEY.MAX_TOKENS, maxTokens ?? DEFAULT_MAX_TOKENS);
@@ -95,6 +101,19 @@ function Settings() {
             >
               OpenAI's website
             </Link>
+          </FormHelperText>
+        </FormControl>
+
+        <FormControl>
+          <FormLabel>OpenAI API Endpoint</FormLabel>
+          <Input
+            type="text"
+            placeholder="https://api.openai.com/v1"
+            value={openAiEndpoint || ""}
+            onChange={(e) => setOpenAiEndpoint(e.target.value)}
+          />
+          <FormHelperText>
+            You can set a custom endpoint for the OpenAI API.
           </FormHelperText>
         </FormControl>
 

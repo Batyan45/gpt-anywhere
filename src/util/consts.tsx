@@ -21,6 +21,7 @@ export const DEFAULT_TIMEOUT = 10;
 export const STORE_KEY = {
   OPENAI_API_KEY: "openai_api_key",
   ANTHROPIC_API_KEY: "anthropic_api_key",
+  OPENAI_API_ENDPOINT: "openai_api_endpoint",
   MAX_TOKENS: "max_length",
   TIMEOUT: "timeout",
   MODEL: "model",
