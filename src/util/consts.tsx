@@ -9,6 +9,7 @@ export const PROMPTS = {
 export const MODELS = {
   "gpt-3.5-turbo": "GPT 3.5 Turbo",
   "gpt-4-0125-preview": "GPT 4 Turbo",
+  "gpt-4o": "GPT 4o",
   // "claude-3-opus-20240229": "Claude 3 Opus",
   // "claude-3-sonnet-20240229": "Claude 3 Sonnet",
   // "claude-3-haiku-20240307": "Claude 3 Haiku",
